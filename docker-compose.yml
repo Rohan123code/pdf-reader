@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  streamlit-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pdf-gemini-app
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
